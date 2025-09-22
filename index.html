@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Horloge Mannetje — Exclusieve Rolex Handel</title>
+  <link rel="stylesheet" href="style.css" />
+<style>
+  .inventory {
+    position: relative;
+    overflow: hidden;
+  }
+  .watch {
+    opacity: 0;
+    transition: opacity 4s ease; /* rustig verdwijnen en verschijnen */
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .watch.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo-circle"><img src="images/logo.jpg" alt="Logo" /></div>
+        <div>
+          <div class="brand-title">HORLOGE MANNETJE</div>
+          <div class="brand-sub">Rolex handel • Authenticatie & consignatie</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#voorraad">Voorraad</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Exclusieve Rolex horloges</h1>
+      <p>In- en verkoop van luxe Rolex horloges. Altijd gecontroleerd op echtheid en geleverd met garantie.</p>
+      <div class="actions">
+        <a href="#voorraad" class="btn btn-primary">Bekijk voorraad</a>
+        <a href="#contact" class="btn btn-outline">Neem contact op</a>
+      </div>
+    </section>
+
+    <!-- Voorraad -->
+    <section id="voorraad">
+      <h2>Beschikbare modellen</h2>
+      <div class="inventory" id="inventory">
+        <!-- JavaScript vult dit automatisch -->
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="margin-top:40px">
+      <h2>Contact</h2>
+      <p>Showroom op afspraak in Amsterdam.</p>
+      <p><strong>Tel:</strong> +31 6 12 34 56 78</p>
+      <p><strong>E-mail:</strong> info@horlogemannetje.nl</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © <span id="year"></span> Horloge Mannetje — Geen officiële Rolex-dealer; gespecialiseerd in pre-owned handel.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const watches = [
+      {
+        img: "images/datejust_zwart.jpg",
+        alt: "Rolex Datejust 126334 Zwart",
+        title: "Rolex Datejust 126334",
+        desc: "Zwarte wijzerplaat • 41mm",
+        price: "€12.750",
+        link: "datejust_zwart.html"
+      },
+      {
+        img: "images/datejust_groen.jpg",
+        alt: "Rolex Datejust 126334 Groen",
+        title: "Rolex Datejust 126334",
+        desc: "Groene wijzerplaat • 41mm",
+        price: "€14.500",
+        link: "datejust_groen.html"
+      },
+      {
+        img: "images/datejust_blauw.jpg",
+        alt: "Rolex Datejust 126334 Blauw",
+        title: "Rolex Datejust 126334",
+        desc: "Blauwe wijzerplaat • 41mm",
+        price: "€13.500",
+        link: "datejust_blauw.html"
+      },
+      {
+        img: "images/daytona.jpg",
+        alt: "Rolex Daytona",
+        title: "Rolex Daytona 116515",
+        desc: "Roségoud • 40mm",
+        price: "€28.900",
+        link: "daytona.html"
+      },
+      {
+        img: "images/skydweller.jpg",
+        alt: "Rolex Sky-Dweller",
+        title: "Rolex Sky-Dweller",
+        desc: "Staal & Witgoud • 42mm",
+        price: "€18.900",
+        link: "skydweller.html"
+      },
+      {
+        img: "images/daydate.jpg",
+        alt: "Rolex Day-Date",
+        title: "Rolex Day-Date",
+        desc: "Geelgoud • 40mm",
+        price: "€32.500",
+        link: "daydate.html"
+      }
+    ];
+
+    function renderWatches() {
+      const inventory = document.getElementById("inventory");
+      inventory.innerHTML = "";
+
+      const shuffled = watches.sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 3);
+
+      selected.forEach(watch => {
+        const card = document.createElement("a");
+        card.href = watch.link;
+        card.className = "watch";
+        card.innerHTML = `
+          <img src="${watch.img}" alt="${watch.alt}">
+          <h3>${watch.title}</h3>
+          <p>${watch.desc}</p>
+          <p class="price">${watch.price}</p>
+        `;
+        inventory.appendChild(card);
+
+        // fade-in starten
+        setTimeout(() => card.classList.add("show"), 50);
+      });
+    }
+
+    function cycleWatches() {
+      const cards = document.querySelectorAll(".watch");
+      cards.forEach(card => card.classList.remove("show")); // langzaam uitfaden
+
+      // pas na 4s nieuwe horloges renderen
+      setTimeout(() => {
+        renderWatches();
+      }, 4000);
+    }
+
+    // eerste set laden
+    renderWatches();
+
+    // elke 16s nieuwe ronde
+    setInterval(cycleWatches, 16000);
+  </script>
+</body>
+</html>
+
