@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rolex Day-Date — Horloge Mannetje</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo-circle"><img src="images/logo.jpg" alt="Logo" /></div>
+        <div>
+          <div class="brand-title">HORLOGE MANNETJE</div>
+          <div class="brand-sub">Rolex handel • Authenticatie & consignatie</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Voorraad</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Product -->
+    <section class="product-hero">
+      <div class="media">
+        <img src="images/daydate.jpg" alt="Rolex Day-Date">
+      </div>
+      <div class="details">
+        <h1>Rolex Day-Date</h1>
+        <div class="meta">
+          <span class="pill">Bouwjaar: 2019</span>
+          <span class="pill">Materiaal: Geelgoud</span>
+          <span class="pill">Maat: 40 mm</span>
+        </div>
+        <div class="price-large">€32.500</div>
+        <p>De iconische Rolex Day-Date, ook wel de "President’s Watch" genoemd, volledig uitgevoerd in geelgoud. Wordt geleverd met doos, papieren en internationale garantie.</p>
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="index.html#contact">Neem contact op</a>
+          <a class="btn btn-outline" href="index.html">← Terug naar overzicht</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>© <span id="year"></span> Horloge Mannetje</footer>
+  </div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
